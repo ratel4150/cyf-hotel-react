@@ -56,7 +56,7 @@ const SearchResults = props => {
                   className={fondo}
                   onClick={() => setEncendido(!encendido)}
                 >
-                  <td scope="row">{result.id} </td>
+                  <th scope="row">{result.id} </th>
                   <td>{result.title}</td>
                   <td>{result.firstName}</td>
                   <td>{result.surname}</td>
@@ -145,9 +145,6 @@ const SearchResults = props => {
                   <td>{a.diff(b, "days")}</td>
                 </tr>
               );
-              break;
-
-            default:
               break;
           }
         })}
