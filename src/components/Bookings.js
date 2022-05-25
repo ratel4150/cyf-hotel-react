@@ -31,22 +31,31 @@ const Bookings = () => {
   };
   const [fakeBookings, setFakeBookings] = useState(null);
   const [initialBookings, setInitialBookings] = useState([]);
+  const [loading, setloading] = useState(false);
+  cosnt[(error, setError)] = useState("");
   /* const[selectedId,setSelectedId]=useState() */
   useEffect(() => {
     console.log("Fetching data from glitch");
-
-    fetch(`https://cyf-react.glitch.me`)
+    setloading(true);
+    fetch(`https://cyf-react.glitch.me/delayed`)
       .then(res => res.json())
       .then(data => {
         setFakeBookings(data);
       })
       .then(data1 => {
         setInitialBookings(data1);
+        setloading(false);
+      })
+      .catch(err => {
+        console.error(err);
+        setError(err.error);
       });
   }, []);
 
   if (fakeBookings) {
-    return (
+    return loading ? (
+      <h1>Cargando....</h1>
+    ) : (
       <div className="App-content">
         <div className="container">
           {/* <p>{marsPhotoData}</p> */}
