@@ -32,7 +32,7 @@ const Bookings = () => {
   const [fakeBookings, setFakeBookings] = useState(null);
   const [initialBookings, setInitialBookings] = useState([]);
   const [loading, setloading] = useState(false);
-  cosnt[(error, setError)] = useState("");
+  const [error, setError] = useState("");
   /* const[selectedId,setSelectedId]=useState() */
   useEffect(() => {
     console.log("Fetching data from glitch");
